@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "943371770075",
+    "project_id": "happy-tales-app",
+    "storage_bucket": "happy-tales-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943371770075:android:ba0954d41045529df714fe",
+        "android_client_info": {
+          "package_name": "com.example.happytales"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGkY0wrx9fTMk_diGTd4wIl0asz36xtTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
