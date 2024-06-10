@@ -94,10 +94,7 @@ class _LoginState extends State<Login> {
                   const Text("Don't have an account?"),
                   TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Signup()));
+                        Navigator.pushNamed(context, '/signup');
                       },
                       child: const Text(
                         "Sign Up",

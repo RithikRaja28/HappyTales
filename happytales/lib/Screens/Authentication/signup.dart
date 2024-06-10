@@ -42,9 +42,7 @@ class _SignupState extends State<Signup> {
       setState(() {
         isLoading = true;
       });
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const HomeScreen(),
-      ));
+      Navigator.pushNamed(context, '/welcome_screen');
     } else {
       setState(() {
         isLoading = false;
@@ -104,10 +102,7 @@ class _SignupState extends State<Signup> {
                   const Text("Already have an account?"),
                   TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Login()));
+                       Navigator.pushNamed(context, '/welcome_screen');
                       },
                       child: const Text(
                         "Login",
