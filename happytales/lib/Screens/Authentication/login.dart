@@ -68,7 +68,9 @@ class _LoginState extends State<Login> {
               Textfieldinput(
                   textEditingController: _passwordController,
                   hintText: 'Password',
-                  icon: Icons.lock),
+                  icon: Icons.lock,
+                  isPass: true),
+                  
               const Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: 30,
