@@ -4,7 +4,6 @@ import 'package:happytales/Screens/Authentication/login.dart';
 import 'package:happytales/Screens/Authentication/signup.dart';
 import 'package:happytales/Screens/Welcome%20Screen/welcome_screen.dart';
 
-
 import 'firebase_options.dart';
 
 void main() async {
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      initialRoute: '/login',
+      initialRoute: '/welcome_screen',
       routes: {
         '/signup': (context) => const Signup(),
         '/login': (context) => const Login(),
