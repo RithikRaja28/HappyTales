@@ -21,6 +21,17 @@ class _SignupState extends State<Signup> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   bool isLoading = false;
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _nameController.dispose();
+  }
+
+
+
   void signUpUser() async {
     String res = await AuthServices().signUpUser(
         name: _nameController.text,
@@ -68,6 +79,7 @@ class _SignupState extends State<Signup> {
               Textfieldinput(
                   textEditingController: _passwordController,
                   hintText: 'Password',
+                  isPass: true,
                   icon: Icons.lock),
               const Padding(
                 padding: EdgeInsets.symmetric(

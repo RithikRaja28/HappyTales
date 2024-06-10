@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:happytales/Screens/Authentication/signup.dart';
+import 'package:happytales/Screens/Home/home_screen.dart';
+import 'package:happytales/Services/authenticate.dart';
 import 'package:happytales/Widgets/TextFieldInput.dart';
 import 'package:happytales/Widgets/button.dart';
+import 'package:happytales/Widgets/snack_bar.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -13,6 +16,36 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  bool isLoading = false;
+
+  @override
+    void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+   
+  }
+  void signInUser() async {
+    String res = await AuthServices().signInUser(
+        
+        email: _emailController.text,
+        password: _passwordController.text);
+
+    if (res == 'success') {
+      setState(() {
+        isLoading = true;
+      });
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => const HomeScreen(),
+      ));
+    } else {
+      setState(() {
+        isLoading = false;
+      });
+      showSnackBar(context, res);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -49,7 +82,7 @@ class _LoginState extends State<Login> {
                           fontWeight: FontWeight.w500)),
                 ),
               ),
-              FormButton(onTap: () {}, text: "Log in"),
+              FormButton(onTap: signInUser, text: "Log in"),
               const SizedBox(
                 height: 20,
               ),
