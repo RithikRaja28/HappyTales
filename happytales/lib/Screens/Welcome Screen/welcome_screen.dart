@@ -3,6 +3,7 @@ import 'package:happytales/Screens/Home/home_screen.dart';
 import 'package:happytales/Screens/Welcome%20Screen/intro_screens/intro_page1.dart';
 import 'package:happytales/Screens/Welcome%20Screen/intro_screens/intro_page2.dart';
 import 'package:happytales/Screens/Welcome%20Screen/intro_screens/intro_page3.dart';
+import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -37,12 +38,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               });
             },
             children: [
-              IntroPage1(),
-              IntroPage2(),
-              IntroPage3(),
+              LiquidSwipe(
+                pages: [
+                  IntroPage1(),
+                  IntroPage2(),
+                  IntroPage3(),
+                ],
+                slideIconWidget: const Icon(Icons.arrow_back_ios),
+                enableSideReveal: true,
+              ),
             ],
           ),
-
           // dot indicators
           Container(
             alignment: Alignment(0, 0.8),
