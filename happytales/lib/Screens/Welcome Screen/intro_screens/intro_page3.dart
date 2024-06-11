@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 
 class IntroPage3 extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-
     return Container(
-      color: Colors.pink[50],
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(
           children: [
-            Image.asset(
-              'images/introPage3.jpg',
-              height: size.height*0.5,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.asset(
+                'images/introPage3.jpg',
+                height: size.height * 0.5,
+                fit: BoxFit.cover,
+              ),
             ),
-            
-        
             const SizedBox(height: 50.0),
             const Text(
               'Listen and Enjoy',
@@ -43,6 +42,26 @@ class IntroPage3 extends StatelessWidget {
                 fontSize: 15.0,
               ),
             ),
+            const SizedBox(
+              height: 30,
+            ),
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
+              buttonMinWidth: 200,
+              buttonHeight: 60,
+              buttonPadding: EdgeInsets.all(20),
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/home');
+                    },
+                    child: const Text(
+                      "Get Started",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    )),
+              ],
+            )
           ],
         ),
       ),

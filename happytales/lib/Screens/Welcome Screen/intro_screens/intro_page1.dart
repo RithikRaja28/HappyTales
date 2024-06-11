@@ -14,13 +14,15 @@ class IntroPage1 extends StatelessWidget {
         padding: const EdgeInsets.all(30.0),
         child: Column(
           children: [
-            Image.asset(
-              'images/introPage1.jpg',
-              height: size.height*0.5,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.asset(
+                'images/introPage1.jpg',
+                height: size.height*0.5,
+                fit: BoxFit.cover,
+              ),
             ),
-
             
-        
             const SizedBox(height: 50.0),
             const Text(
               'Welcome to StoryMagic!',
@@ -44,6 +46,7 @@ class IntroPage1 extends StatelessWidget {
                 fontSize: 15.0,
               ),
             ),
+            
           ],
         ),
       ),

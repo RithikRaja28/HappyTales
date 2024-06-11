@@ -20,17 +20,15 @@ class _LoginState extends State<Login> {
   bool isLoading = false;
 
   @override
-    void dispose() {
+  void dispose() {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
-   
   }
+
   void signInUser() async {
     String res = await AuthServices().signInUser(
-        
-        email: _emailController.text,
-        password: _passwordController.text);
+        email: _emailController.text, password: _passwordController.text);
 
     if (res == 'success') {
       setState(() {
@@ -46,6 +44,7 @@ class _LoginState extends State<Login> {
       showSnackBar(context, res);
     }
   }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -70,7 +69,6 @@ class _LoginState extends State<Login> {
                   hintText: 'Password',
                   icon: Icons.lock,
                   isPass: true),
-                  
               const Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: 30,

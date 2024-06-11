@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:happytales/Screens/Authentication/login.dart';
 import 'package:happytales/Screens/Authentication/signup.dart';
+import 'package:happytales/Screens/Home/home_screen.dart';
 import 'package:happytales/Screens/Welcome%20Screen/welcome_screen.dart';
 
 import 'firebase_options.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => const Signup(),
         '/login': (context) => const Login(),
         '/welcome_screen':(context) =>const WelcomeScreen(),
+        '/home':(context) => const HomeScreen(),
       },
     );
   }

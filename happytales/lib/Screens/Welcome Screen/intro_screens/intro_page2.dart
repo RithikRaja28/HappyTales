@@ -8,14 +8,18 @@ class IntroPage2 extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      color: Colors.brown[100],
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(
           children: [
-            Image.asset(
-              'images/introPage2.jpg',
-              height: size.height*0.5,
+           ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.asset(
+                'images/introPage2.jpg',
+                height: size.height * 0.5,
+                fit: BoxFit.cover,
+              ),
             ),
 
             
