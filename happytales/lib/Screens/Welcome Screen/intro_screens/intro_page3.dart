@@ -19,11 +19,11 @@ class IntroPage3 extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 50.0),
+            const SizedBox(height: 40.0),
             const Text(
               'Listen and Enjoy',
               style: TextStyle(
-                fontSize: 25.0,
+                fontSize: 23.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -43,25 +43,18 @@ class IntroPage3 extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 5.0,
             ),
-            ButtonBar(
-              alignment: MainAxisAlignment.center,
-              buttonMinWidth: 200,
-              buttonHeight: 60,
-              buttonPadding: EdgeInsets.all(20),
-              children: [
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/home');
-                    },
-                    child: const Text(
-                      "Get Started",
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    )),
-              ],
-            )
+
+             ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/home');
+                },
+                child: const Text(
+                  "Get Started",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                )),
+           
           ],
         ),
       ),

@@ -30,8 +30,6 @@ class _SignupState extends State<Signup> {
     _nameController.dispose();
   }
 
-
-
   void signUpUser() async {
     String res = await AuthServices().signUpUser(
         name: _nameController.text,
@@ -93,25 +91,31 @@ class _SignupState extends State<Signup> {
                 ),
               ),
               FormButton(onTap: signUpUser, text: "Sign Up"),
-              const SizedBox(
-                height: 20,
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Already have an account?"),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/login');
+                        },
+                        child: const Padding(
+                          padding:
+                              EdgeInsets.only(left: 5, right: 5, bottom: 2),
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ))
+                  ],
+                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text("Already have an account?"),
-                  TextButton(
-                      onPressed: () {
-                       Navigator.pushNamed(context, '/welcome_screen');
-                      },
-                      child: const Text(
-                        "Login",
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
-                      ))
-                ],
+              const SizedBox(
+                height: 10,
               ),
             ],
           ),

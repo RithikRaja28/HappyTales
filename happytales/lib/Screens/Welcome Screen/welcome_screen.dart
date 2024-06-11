@@ -32,9 +32,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             setState(() {
               onLastPage = (index == 3);
               if (onLastPage) {
-                swipe = '';
-              } else {
-                swipe = 'Swipe left for next page';
+                
               }
             });
           },
@@ -45,7 +43,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 IntroPage2(),
                 IntroPage3(),
               ],
-              slideIconWidget: SizedBox(child: const Icon(Icons.arrow_back_ios_new), width: 30, height: 30),
+              
               enableLoop: true,
               fullTransitionValue: 300,
               enableSideReveal: true,
@@ -68,53 +66,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
           ),
         ),
-        // dot indicators
-        /* Container(
-            alignment: Alignment(0, 0.8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-
-                // skip
-                GestureDetector(
-                  onTap: () {
-                    _controller.jumpToPage(2);
-                  },
-                  child: Text("Skip"),
-                ),
-
-
-                // dot indicator
-                SmoothPageIndicator(controller: _controller, count: 3),
-
-
-                // next or done
-                onLastPage ?
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context, MaterialPageRoute(
-                        builder: (context) {
-                          return HomeScreen();
-                        },
-                      ),
-                    );
-                  },
-                  child: Text("Done"),
-                ):
-                GestureDetector(
-                  onTap: () {
-                    _controller.nextPage(
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.easeIn,
-                    );
-                  },
-                  child: Text("Next"),
-                ),
-              ],
-            ),
-          ), */
-      ],
+        // indicator
+       
+    ],
     ));
   }
 }
+      
+       

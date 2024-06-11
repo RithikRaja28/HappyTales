@@ -24,11 +24,11 @@ class IntroPage2 extends StatelessWidget {
 
             
         
-            const SizedBox(height: 50.0),
+            const SizedBox(height: 40.0),
             const Text(
               'Choose Your Adventure',
               style: TextStyle(
-                fontSize: 25.0,
+                fontSize: 23.0,
                 fontWeight: FontWeight.bold,
               ),
             ),

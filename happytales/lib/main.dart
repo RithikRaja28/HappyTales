@@ -4,6 +4,7 @@ import 'package:happytales/Screens/Authentication/login.dart';
 import 'package:happytales/Screens/Authentication/signup.dart';
 import 'package:happytales/Screens/Home/home_screen.dart';
 import 'package:happytales/Screens/Welcome%20Screen/welcome_screen.dart';
+import 'package:happytales/Widgets/splash.dart';
 
 import 'firebase_options.dart';
 
@@ -27,9 +28,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      initialRoute: '/welcome_screen',
+      initialRoute: '/splash',
+
+    
       routes: {
         '/signup': (context) => const Signup(),
+        '/splash': (context) => const Splash(),
         '/login': (context) => const Login(),
         '/welcome_screen':(context) =>const WelcomeScreen(),
         '/home':(context) => const HomeScreen(),

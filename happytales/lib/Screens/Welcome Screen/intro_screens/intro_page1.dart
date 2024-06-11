@@ -23,12 +23,14 @@ class IntroPage1 extends StatelessWidget {
               ),
             ),
             
-            const SizedBox(height: 50.0),
-            const Text(
-              'Welcome to StoryMagic!',
-              style: TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
+            const SizedBox(height: 40.0),
+            Center(
+              child: Text(
+                'Welcome to Happytales!',
+                style: TextStyle(
+                  fontSize: 23.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             const SizedBox(height: 30),
