@@ -30,7 +30,13 @@ class IntroPage3 extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             const Text(
-              'Narrated Stories'
+              'Narrated Stories',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20.0,
+              ),
+            ),
+            const Text(
               'Let our app read the stories to you with engaging narration. Perfect for bedtime or anytime!',
               textAlign: TextAlign.center,
               style: TextStyle(
