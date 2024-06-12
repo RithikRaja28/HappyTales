@@ -56,68 +56,72 @@ class _SignupState extends State<Signup> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SizedBox(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: double.infinity,
-                height: height / 2.7,
-                child: Image.asset('images/singup.jpg'),
-              ),
-              Textfieldinput(
-                  textEditingController: _nameController,
-                  hintText: 'Enter Name',
-                  icon: Icons.person),
-              Textfieldinput(
-                  textEditingController: _emailController,
-                  hintText: 'Email Address',
-                  icon: Icons.email),
-              Textfieldinput(
-                  textEditingController: _passwordController,
-                  hintText: 'Password',
-                  isPass: true,
-                  icon: Icons.lock),
-              const Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 30,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  height: height / 2.7,
+                  child: Image.asset('images/singup.jpg'),
                 ),
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: Text("Forgot Password?",
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500)),
+                Textfieldinput(
+                    textEditingController: _nameController,
+                    hintText: 'Enter Name',
+                    icon: Icons.person),
+                Textfieldinput(
+                    textEditingController: _emailController,
+                    hintText: 'Email Address',
+                    icon: Icons.email),
+                Textfieldinput(
+                    textEditingController: _passwordController,
+                    hintText: 'Password',
+                    isPass: true,
+                    icon: Icons.lock),
+                const Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Text("Forgot Password?",
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500)),
+                  ),
                 ),
-              ),
-              FormButton(onTap: signUpUser, text: "Sign Up"),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Already have an account?"),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/login');
-                        },
-                        child: const Padding(
-                          padding:
-                              EdgeInsets.only(left: 5, right: 5, bottom: 2),
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ))
-                  ],
+                FormButton(onTap: signUpUser, text: "Sign Up"),
+             
+                  SingleChildScrollView(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Already have an account?"),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/login');
+                            },
+                            child: const Padding(
+                              padding:
+                                  EdgeInsets.only(left: 5, right: 5, bottom: 2),
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ))
+                      ],
+                                  
+                                  ),
+                  ),
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

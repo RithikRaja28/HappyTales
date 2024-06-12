@@ -4,7 +4,7 @@ import 'package:happytales/Screens/Authentication/login.dart';
 import 'package:happytales/Screens/Authentication/signup.dart';
 import 'package:happytales/Screens/Home/home_screen.dart';
 import 'package:happytales/Screens/Welcome%20Screen/welcome_screen.dart';
-import 'package:happytales/Widgets/splash.dart';
+
 
 import 'firebase_options.dart';
 
@@ -23,17 +23,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Happy Tales',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
       ),
-      initialRoute: '/splash',
+      initialRoute: '/login',
 
     
       routes: {
         '/signup': (context) => const Signup(),
-        '/splash': (context) => const Splash(),
         '/login': (context) => const Login(),
         '/welcome_screen':(context) =>const WelcomeScreen(),
         '/home':(context) => const HomeScreen(),
