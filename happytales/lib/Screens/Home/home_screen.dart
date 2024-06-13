@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happytales/Screens/Authentication/logout.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -6,7 +7,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Home'),
+      appBar: AppBar(
+        title: Text('Home'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            signOut(context); // Pass the context to the signOut function
+          },
+          child: Text('Sign Out'),
+        ),
+      ),
     );
   }
 }
