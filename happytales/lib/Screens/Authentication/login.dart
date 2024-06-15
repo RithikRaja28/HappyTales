@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:happytales/Screens/Authentication/signup.dart';
 import 'package:happytales/Screens/Home/home_screen.dart';
 import 'package:happytales/Services/authenticate.dart';
 import 'package:happytales/Widgets/TextFieldInput.dart';
