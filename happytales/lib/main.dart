@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:happytales/Screens/Authentication/login.dart';
 import 'package:happytales/Screens/Authentication/signup.dart';
 import 'package:happytales/Screens/Home/home_screen.dart';
-import 'package:happytales/Screens/Sidebar/side_menu.dart';
+
 import 'package:happytales/Screens/Welcome%20Screen/welcome_screen.dart';
 
 
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-     home: SideMenu(),
+     home: AuthCheck(),
 
     
       routes: {
