@@ -58,7 +58,7 @@ class _LoginState extends State<Login> {
                 SizedBox(
                   width: double.infinity,
                   height: height / 2.7,
-                  child: Image.asset('images/Login.jpg'),
+                  child: Image.asset('assests/images/Login.jpg'),
                 ),
                 Textfieldinput(
                     textEditingController: _emailController,

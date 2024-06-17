@@ -63,7 +63,7 @@ class _SignupState extends State<Signup> {
                 SizedBox(
                   width: double.infinity,
                   height: height / 2.7,
-                  child: Image.asset('images/singup.jpg'),
+                  child: Image.asset('assests/images/singup.jpg'),
                 ),
                 Textfieldinput(
                     textEditingController: _nameController,

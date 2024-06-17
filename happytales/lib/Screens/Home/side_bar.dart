@@ -12,7 +12,7 @@ class SideBar extends StatelessWidget {
           children: [
             UserAccountsDrawerHeader(
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 124, 94, 161),
+          color: const Color.fromRGBO(111, 175, 227, 1),
         ),
         accountName: Text(
           'User Name', // user's name

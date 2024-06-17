@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:happytales/Screens/Authentication/login.dart';
 import 'package:happytales/Screens/Authentication/signup.dart';
+import 'package:happytales/Screens/Gemini%20API/gemini.dart';
 import 'package:happytales/Screens/Home/home_screen.dart';
 import 'package:happytales/Screens/Settings%20Screen/settings_screen.dart';
 import 'package:happytales/Screens/Welcome%20Screen/welcome_screen.dart';
@@ -26,8 +27,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Happy Tales',
       debugShowCheckedModeBanner: false,
+      
       theme: ThemeData(
         useMaterial3: true,
+        
+        
       ),
       home: AuthCheck(),
 
@@ -38,6 +42,7 @@ class MyApp extends StatelessWidget {
         '/welcome_screen':(context) =>const WelcomeScreen(),
         '/home':(context) => const HomeScreen(),
         '/settings': (context) => SettingsScreen(),
+        '/gemini': (context) => const Gemini(),
       },
     );
   }
