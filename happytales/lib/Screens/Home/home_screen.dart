@@ -9,15 +9,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+  
         title: Text('Home'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            signOut(context); // Pass the context to the signOut function
-          },
-          child: Text('Sign Out'),
-        ),
       ),
       drawer: SideBar(),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happytales/Screens/Authentication/logout.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({super.key});
@@ -11,7 +12,7 @@ class SideBar extends StatelessWidget {
           children: [
             UserAccountsDrawerHeader(
         decoration: BoxDecoration(
-          color: Colors.blueGrey,
+          color: const Color.fromARGB(255, 124, 94, 161),
         ),
         accountName: Text(
           'User Name', // user's name
@@ -29,7 +30,7 @@ class SideBar extends StatelessWidget {
           ),
         ),
         currentAccountPicture: CircleAvatar(
-          backgroundImage: AssetImage(''), // User profile picture
+          backgroundImage: AssetImage('assests/images/google.png'), // User profile picture
         ),
       ),
             ListTile(
@@ -94,7 +95,7 @@ class SideBar extends StatelessWidget {
               leading: Icon(Icons.logout),
               title: Text('Sign Out'),
               onTap: () {
-                Navigator.pop(context);
+                signOut(context);
               },
             ),
           ],
