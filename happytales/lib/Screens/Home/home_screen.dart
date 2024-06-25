@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:happytales/Screens/Home/side_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -8,63 +7,39 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  late Animation<double> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      duration: const Duration(seconds: 2),
-    
-      vsync: this,
-    )..repeat();
-    _animation = CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-
-    );
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+
+    var media = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Happy Tales', style: TextStyle(color: Colors.white, fontSize: 20, )),
-          backgroundColor: Color.fromRGBO(111, 175, 227, 1),
-          elevation: 2,
-          iconTheme: IconThemeData(color: Colors.white),
-          actionsIconTheme: IconThemeData(color: Colors.white),
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Align(
+                  child: Transform.scale(
+                    scale: 1.5,
+                    origin: Offset(0, media.width * 0.8),
+                    child: Container(
+                      width: media.width,
+                      height: media.width,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(111, 175, 227, 1),
+                        borderRadius: BorderRadius.circular(media.width * 0.5)
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            )
+          ],
         ),
-        //Color.fromARGB(255, 60, 60, 60)
-        drawer: SideBar(),
-       
-           floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed('/gemini');
-        },
-        child: AnimatedBuilder(
-          animation: _animation,
-          child: Image.asset('assests/images/gemini.png'),
-          builder: (context, child) {
-            return RotationTransition(
-              turns: _animation,
-              child: child,
-            );
-          },
-        ),
-        backgroundColor: Color.fromARGB(255, 55, 55, 55),
       ),
-        body: Scaffold(
-        
-        ),
     );
   }
 }
-

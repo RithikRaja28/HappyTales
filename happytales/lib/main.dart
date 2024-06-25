@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         
         
       ),
-      home: AuthCheck(),
+      home: HomeScreen(),
 
     
       routes: {
