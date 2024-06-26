@@ -15,22 +15,22 @@ class _HomeScreenState extends State<HomeScreen> {
     {
       "name" : "The Tortoise and the Hare",
       "author": "Aesop",
-      "img":""
+      "img":"assests/images/Tortoise_hare.jpg"
     },
     {
       "name" : "The Lion and the Mouse",
       "author": "Aesop, Bernadette Watts",
-      "img":""
+      "img":"assests/images/lion_mouse.jpg"
     },
     {
       "name" : "Goodnight Moon",
       "author": "Margaret Wise Brown",
-      "img":""
+      "img":"assests/images/Goodnight_moon.jpg"
     },
     {
       "name" : "The Three Little Pigs",
       "author": "James Halliwell-Phillipps",
-      "img":""
+      "img":"assests/images/ThreeLittlePigs.jpg"
     },
   ];
   @override
@@ -90,13 +90,46 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                       ],
                     ),
-
                     Container(
                       child: CarouselSlider.builder(
                         itemCount: topPicksArr.length,
-                        itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
-                          return Container();
+                        itemBuilder: (
+                          BuildContext context,int itemIndex,
+                          int pageViewIndex){
+                          var iObj = topPicksArr[itemIndex] as Map? ?? {};
+                          return Container(
+                            child: Column(
+                              children: [
 
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [
+                                      BoxShadow(color: Colors.black12, offset: Offset(0, 2), blurRadius: 3)
+                                    ]
+                                  ),
+                                  
+                                  child: Image.asset(iObj["img"].toString(), height: media.width * 0.6, fit: BoxFit.cover,),),
+                                Text(
+                                  iObj["name"].toString(),
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                Text(
+                                  iObj["author"].toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w700
+                                  ),
+                                )
+                              ],
+                            )
+                          );
                         },
                         options: CarouselOptions(
                           autoPlay: true,
@@ -106,7 +139,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           enlargeFactor: 0.4,
                           enlargeStrategy: CenterPageEnlargeStrategy.height,
                         ),
-                      
                       ),
                     )
                   ],
