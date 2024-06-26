@@ -23,11 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
       "img":"assests/images/lion_mouse.jpg"
     },
     {
-      "name" : "Goodnight Moon",
-      "author": "Margaret Wise Brown",
-      "img":"assests/images/Goodnight_moon.jpg"
-    },
-    {
       "name" : "The Three Little Pigs",
       "author": "James Halliwell-Phillipps",
       "img":"assests/images/ThreeLittlePigs.jpg"
@@ -111,6 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   
                                   child: Image.asset(iObj["img"].toString(), height: media.width * 0.6, fit: BoxFit.cover,),),
+                                  SizedBox(height: 15),
                                 Text(
                                   iObj["name"].toString(),
                                   style: TextStyle(
@@ -122,9 +118,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   iObj["author"].toString(),
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Color.fromARGB(255, 11, 10, 10),
                                     fontSize: 13,
-                                    fontWeight: FontWeight.w700
+                                    
                                   ),
                                 )
                               ],
@@ -146,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             SizedBox(
-            height: 505, // Adjust the height as needed
+            height: 305, // Adjust the height as needed
             child: MaintabBar(),
           ),
           ],
