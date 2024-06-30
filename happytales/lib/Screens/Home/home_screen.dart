@@ -10,31 +10,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  List topPicksArr =[
+  List topPicksArr = [
     {
-      "name" : "The Tortoise and the Hare",
+      "name": "The Tortoise and the Hare",
       "author": "Aesop",
-      "img":"assests/images/Tortoise_hare.jpg"
+      "img": "assests/images/Tortoise_hare.jpg"
     },
     {
-      "name" : "The Lion and the Mouse",
+      "name": "The Lion and the Mouse",
       "author": "Aesop, Bernadette Watts",
-      "img":"assests/images/lion_mouse.jpg"
+      "img": "assests/images/lion_mouse.jpg"
     },
     {
-      "name" : "The Three Little Pigs",
+      "name": "The Three Little Pigs",
       "author": "James Halliwell-Phillipps",
-      "img":"assests/images/ThreeLittlePigs.jpg"
+      "img": "assests/images/ThreeLittlePigs.jpg"
     },
   ];
+
   @override
   Widget build(BuildContext context) {
-
     var media = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,16 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: media.width,
                       decoration: BoxDecoration(
                         color: Color.fromRGBO(111, 175, 227, 1),
-                        borderRadius: BorderRadius.circular(media.width * 0.5)
+                        borderRadius: BorderRadius.circular(media.width * 0.5),
                       ),
                     ),
                   ),
                 ),
-
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
-
                   children: [
                     AppBar(
                       backgroundColor: Colors.transparent,
@@ -72,16 +68,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 22,
-                              fontWeight: FontWeight.w700
-                              ),
+                              fontWeight: FontWeight.w700,
                             ),
+                          ),
                         ],
                       ),
                       leading: Container(),
                       leadingWidth: 1,
                       actions: [
                         IconButton(
-                          onPressed: (){}, icon: Icon(Icons.menu)
+                          onPressed: () {},
+                          icon: Icon(Icons.menu),
                         )
                       ],
                     ),
@@ -89,30 +86,39 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: CarouselSlider.builder(
                         itemCount: topPicksArr.length,
                         itemBuilder: (
-                          BuildContext context,int itemIndex,
-                          int pageViewIndex){
+                          BuildContext context,
+                          int itemIndex,
+                          int pageViewIndex,
+                        ) {
                           var iObj = topPicksArr[itemIndex] as Map? ?? {};
                           return Container(
                             child: Column(
                               children: [
-
                                 Container(
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
                                     boxShadow: [
-                                      BoxShadow(color: Colors.black12, offset: Offset(0, 2), blurRadius: 3)
-                                    ]
+                                      BoxShadow(
+                                        color: Colors.black12,
+                                        offset: Offset(0, 2),
+                                        blurRadius: 3,
+                                      ),
+                                    ],
                                   ),
-                                  
-                                  child: Image.asset(iObj["img"].toString(), height: media.width * 0.6, fit: BoxFit.cover,),),
-                                  SizedBox(height: 15),
+                                  child: Image.asset(
+                                    iObj["img"].toString(),
+                                    height: media.width * 0.6,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(height: 15),
                                 Text(
                                   iObj["name"].toString(),
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 15,
-                                    fontWeight: FontWeight.w700
+                                    fontWeight: FontWeight.w700,
                                   ),
                                 ),
                                 Text(
@@ -120,11 +126,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: TextStyle(
                                     color: Color.fromARGB(255, 11, 10, 10),
                                     fontSize: 13,
-                                    
                                   ),
-                                )
+                                ),
                               ],
-                            )
+                            ),
                           );
                         },
                         options: CarouselOptions(
@@ -136,15 +141,15 @@ class _HomeScreenState extends State<HomeScreen> {
                           enlargeStrategy: CenterPageEnlargeStrategy.height,
                         ),
                       ),
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
-            SizedBox(
-            height: 305, // Adjust the height as needed
-            child: MaintabBar(),
-          ),
+            Container(
+              height: 305, // Adjust the height as needed
+              child: MaintabBar(),
+            ),
           ],
         ),
       ),
