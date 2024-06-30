@@ -28,6 +28,24 @@ class _HomeScreenState extends State<HomeScreen> {
     },
   ];
 
+  List moralArr = [
+    {
+      "name": "The Ant and the Grasshopper",
+      "author": "Aesop",
+      "img": "assests/images/Tortoise_hare.jpg"
+    },
+    {
+      "name": "The Goose That Laid the Golden Eggs",
+      "author": "Aesop",
+      "img": "assests/images/lion_mouse.jpg"
+    },
+    {
+      "name": "The Thirsty Crow",
+      "author": "Lyle Lee Jenkins",
+      "img": "assests/images/ThreeLittlePigs.jpg"
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
@@ -58,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    SizedBox(height: 15),
                     AppBar(
                       backgroundColor: Colors.transparent,
                       elevation: 0,
@@ -79,9 +98,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.menu),
+                          color: Colors.white,
                         )
                       ],
                     ),
+
+                    SizedBox(height: media.width * 0.15),
+
                     Container(
                       child: CarouselSlider.builder(
                         itemCount: topPicksArr.length,
@@ -106,10 +129,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     ],
                                   ),
-                                  child: Image.asset(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: Image.asset(
                                     iObj["img"].toString(),
-                                    height: media.width * 0.6,
+                                    width: media.width * 0.35,
+                                    height: media.width * 0.5,
                                     fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                                 SizedBox(height: 15),
@@ -128,14 +155,30 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fontSize: 13,
                                   ),
                                 ),
+
+                                Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 20),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "Moral Stories",
+                                        style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                           );
                         },
                         options: CarouselOptions(
-                          autoPlay: true,
+                          autoPlay: false,
                           enlargeCenterPage: true,
-                          viewportFraction: 0.6,
+                          viewportFraction: 0.5,
                           aspectRatio: 0.9,
                           enlargeFactor: 0.4,
                           enlargeStrategy: CenterPageEnlargeStrategy.height,
@@ -147,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             Container(
-              height: 305, // Adjust the height as needed
+              height: 225, // Adjust the height as needed
               child: MaintabBar(),
             ),
           ],
