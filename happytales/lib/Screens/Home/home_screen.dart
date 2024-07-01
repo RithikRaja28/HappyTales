@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:happytales/Screens/Home/maintab_bar.dart';
+import 'package:happytales/Screens/Home/moral_stories.dart';
+import 'package:happytales/Screens/Home/top_picks.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,17 +34,17 @@ class _HomeScreenState extends State<HomeScreen> {
     {
       "name": "The Ant and the Grasshopper",
       "author": "Aesop",
-      "img": "assests/images/Tortoise_hare.jpg"
+      "img": "assests/images/Ant_Grasshopper.jpg"
     },
     {
       "name": "The Goose That Laid the Golden Eggs",
       "author": "Aesop",
-      "img": "assests/images/lion_mouse.jpg"
+      "img": "assests/images/Goose_GoldenEggs.jpg"
     },
     {
       "name": "The Thirsty Crow",
       "author": "Lyle Lee Jenkins",
-      "img": "assests/images/ThreeLittlePigs.jpg"
+      "img": "assests/images/Thirsty_crow.jpg"
     },
   ];
 
@@ -60,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Align(
                   child: Transform.scale(
-                    scale: 1.5,
+                    scale: 1.7,
                     origin: Offset(0, media.width * 0.8),
                     child: Container(
                       width: media.width,
@@ -103,9 +105,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
 
-                    SizedBox(height: media.width * 0.15),
+                
 
-                    Container(
+                    SizedBox(
+                      width: media.width,
+                      height: media.width * 0.8,
                       child: CarouselSlider.builder(
                         itemCount: topPicksArr.length,
                         itemBuilder: (
@@ -114,83 +118,53 @@ class _HomeScreenState extends State<HomeScreen> {
                           int pageViewIndex,
                         ) {
                           var iObj = topPicksArr[itemIndex] as Map? ?? {};
-                          return Container(
-                            child: Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(15),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black12,
-                                        offset: Offset(0, 2),
-                                        blurRadius: 3,
-                                      ),
-                                    ],
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.asset(
-                                    iObj["img"].toString(),
-                                    width: media.width * 0.35,
-                                    height: media.width * 0.5,
-                                    fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 15),
-                                Text(
-                                  iObj["name"].toString(),
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                Text(
-                                  iObj["author"].toString(),
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 11, 10, 10),
-                                    fontSize: 13,
-                                  ),
-                                ),
-
-                                Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 20),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "Moral Stories",
-                                        style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
+                          return TopPicks(iObj: iObj,);
                         },
                         options: CarouselOptions(
                           autoPlay: false,
                           enlargeCenterPage: true,
-                          viewportFraction: 0.5,
-                          aspectRatio: 0.9,
+                          viewportFraction: 0.45,
+                          aspectRatio: 1,
                           enlargeFactor: 0.4,
-                          enlargeStrategy: CenterPageEnlargeStrategy.height,
+                          enlargeStrategy: CenterPageEnlargeStrategy.zoom,
                         ),
                       ),
                     ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        children: [
+                          Text(
+                            "Moral Stories",
+                            style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: media.width,
+                      child: ListView.builder(
+                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 8),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: moralArr.length,
+                        itemBuilder: ((context, index) {
+                          var bObj = moralArr[index] as Map? ?? {};
+
+                          return MoralStories(bObj: bObj,);
+                        }),
+                      ),
+                    )
                   ],
                 ),
               ],
             ),
             Container(
-              height: 225, // Adjust the height as needed
+              height: 75, // Adjust the height as needed
               child: MaintabBar(),
             ),
           ],
