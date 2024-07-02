@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tts/flutter_tts.dart';
+
 
 class StoryPage extends StatefulWidget {
   final String title;
@@ -22,30 +22,7 @@ class StoryPage extends StatefulWidget {
 }
 
 class _StoryPageState extends State<StoryPage> {
-  late FlutterTts flutterTts;
-
-  @override
-  void initState() {
-    super.initState();
-    flutterTts = FlutterTts();
-  }
-
-  @override
-  void dispose() {
-    flutterTts.stop();
-    super.dispose();
-  }
-
-  Future<void> _speak() async {
-    // Construct the complete text to read aloud
-    String text = "${widget.title} by ${widget.author}. ${widget.content} Moral of the story: ${widget.moral}";
-    
-    await flutterTts.setLanguage("en-US");
-    await flutterTts.setPitch(1.0);
-    await flutterTts.setSpeechRate(0.5); // Adjust the speech rate as per your preference
-    await flutterTts.speak(text);
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,17 +63,6 @@ class _StoryPageState extends State<StoryPage> {
                 style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
               ),
               SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: _speak,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.volume_up),
-                    SizedBox(width: 10),
-                    Text("Read Aloud"),
-                  ],
-                ),
-              ),
             ],
           ),
         ),
