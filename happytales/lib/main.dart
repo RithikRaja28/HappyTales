@@ -6,6 +6,7 @@ import 'package:happytales/Screens/Authentication/signup.dart';
 import 'package:happytales/Screens/Gemini%20API/gemini.dart';
 import 'package:happytales/Screens/Home/home_screen.dart';
 import 'package:happytales/Screens/Settings%20Screen/settings_screen.dart';
+import 'package:happytales/Screens/Story%20Screen/story_page.dart';
 import 'package:happytales/Screens/Welcome%20Screen/welcome_screen.dart';
 
 import 'firebase_options.dart';
@@ -43,6 +44,13 @@ class MyApp extends StatelessWidget {
         '/home':(context) => const HomeScreen(),
         '/settings': (context) => SettingsScreen(),
         '/gemini': (context) => const Gemini(),
+        '/story': (context) => StoryPage(
+          title: '',
+          author: '',
+          img: '',
+          content: '',
+          moral: '',
+        ),
       },
     );
   }

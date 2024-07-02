@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happytales/Screens/Story Screen/story_page.dart';
 
 class TopPicks extends StatelessWidget {
   final Map iObj;
@@ -9,7 +10,22 @@ class TopPicks extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var media = MediaQuery.of(context).size;
-    return SizedBox(
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => StoryPage(
+              title: iObj['name'],
+              author: iObj['author'],
+              img: iObj['img'],
+              content: iObj['content'],
+              moral: iObj['moral'],
+            ),
+          ),
+        );
+      },
+      child: SizedBox(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
@@ -55,6 +71,6 @@ class TopPicks extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }

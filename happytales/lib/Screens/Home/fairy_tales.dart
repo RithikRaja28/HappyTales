@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:happytales/Screens/Story Screen/story_page.dart';
 
-class MoralStories extends StatelessWidget {
-  final Map bObj;
+class FairyTales extends StatelessWidget {
+  final Map cObj;
 
-  const MoralStories({super.key, required this.bObj});
+  const FairyTales({super.key, required this.cObj});
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +16,22 @@ class MoralStories extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => StoryPage(
-              title: bObj['name'],
-              author: bObj['author'],
-              img: bObj['img'],
-              content: bObj['content'],
-              moral: bObj['moral'],
+              title: cObj['name'],
+              author: cObj['author'],
+              img: cObj['img'],
+              content: cObj['content'],
+              moral: cObj['moral'],
             ),
           ),
         );
       },
       child: Container(
-      margin: EdgeInsets.symmetric(horizontal: 18),
+      margin: EdgeInsets.symmetric(horizontal: 15),
       width: media.width * 0.32,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
@@ -47,7 +46,7 @@ class MoralStories extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: Image.asset(
-                bObj["img"].toString(),
+                cObj["img"].toString(),
                 width: media.width * 0.32,
                 height: media.width * 0.50,
                 fit: BoxFit.cover,
@@ -56,7 +55,7 @@ class MoralStories extends StatelessWidget {
           ),
           SizedBox(height: 15),
           Text(
-            bObj["name"].toString(),
+            cObj["name"].toString(),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
@@ -68,7 +67,7 @@ class MoralStories extends StatelessWidget {
           ),
           SizedBox(height: 8),
           Text(
-            bObj["author"].toString(),
+            cObj["author"].toString(),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
@@ -77,7 +76,6 @@ class MoralStories extends StatelessWidget {
               fontSize: 13,
             ),
           ),
-          
         ],
       ),
     ));
