@@ -16,7 +16,7 @@ class IntroPage2 extends StatelessWidget {
            ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.asset(
-                'images/introPage2.jpg',
+                'assests/images/introPage2.jpg',
                 height: size.height * 0.5,
                 fit: BoxFit.cover,
               ),

@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         
         
       ),
-      home: HomeScreen(),
+      home: WelcomeScreen(),
 
     
       routes: {
@@ -73,4 +73,3 @@ class AuthCheck extends StatelessWidget {
     );
   }
 }
-

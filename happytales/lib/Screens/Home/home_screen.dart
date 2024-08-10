@@ -12,7 +12,33 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      duration: const Duration(seconds: 2),
+    
+      vsync: this,
+    )..repeat();
+    _animation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeInOut,
+
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+
+
   List topPicksArr = [
     {
       "name": "The Tortoise and the Hare",
@@ -270,6 +296,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed('/gemini');
+        },
+        child: AnimatedBuilder(
+          animation: _animation,
+          child: Image.asset('assests/images/gemini.png'),
+          builder: (context, child) {
+            return RotationTransition(
+              turns: _animation,
+              child: child,
+            );
+          },
+        ),
+        backgroundColor: Color.fromARGB(255, 55, 55, 55),
       ),
       bottomNavigationBar: MaintabBar(), // Move the MaintabBar here
     );
