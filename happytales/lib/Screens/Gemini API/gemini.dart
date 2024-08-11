@@ -23,7 +23,7 @@ class _GeminiState extends State<Gemini> {
     super.initState();
     _model = GenerativeModel(
       model: 'gemini-pro',
-      apiKey: const String.fromEnvironment('api_key'),
+      apiKey: 'AIzaSyAdFW-tfACDH3xlRiB2TFir0RZpm9-RxCc',
     );
     _chatSession = _model.startChat();
   }
@@ -70,7 +70,14 @@ class _GeminiState extends State<Gemini> {
                       onSubmitted: _sendChatMessage,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  IconButton(
+                  icon: Icon(Icons.send),
+                  color: Theme.of(context).colorScheme.primary,
+                  onPressed: () {
+                    _sendChatMessage(_textController.text);
+                  },
+                ),
+                const SizedBox(height: 15),
                 ],
               ),
             ),
