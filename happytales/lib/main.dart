@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: _darkMode ? ThemeMode.dark : ThemeMode.light,
-      initialRoute: '/welcome_screen',
+      home: AuthCheck(), // Set the home to AuthCheck which handles initial routing
       routes: {
         '/signup': (context) => Signup(),
         '/login': (context) => Login(),
@@ -62,7 +62,6 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-
 class AuthCheck extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -70,7 +69,11 @@ class AuthCheck extends StatelessWidget {
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator(); // Show a loading indicator while checking auth state
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(), // Show a loading indicator while checking auth state
+            ),
+          );
         } else if (snapshot.hasData) {
           return HomeScreen(); // If the user is signed in, navigate to HomePage
         } else {
