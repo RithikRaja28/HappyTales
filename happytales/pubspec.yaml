@@ -43,6 +43,8 @@ dependencies:
   flutter_native_splash: ^2.4.0
   carousel_slider: ^4.2.1
   flutter_settings_screens: ^0.3.4
+  google_generative_ai: ^0.4.4
+  flutter_markdown: ^0.7.3+1
   
 
 
