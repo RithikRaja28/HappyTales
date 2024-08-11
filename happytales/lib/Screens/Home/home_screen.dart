@@ -195,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             "Our Top Picks",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 22,
+                              fontSize: 25,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
@@ -203,13 +203,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       ),
                       leading: Container(),
                       leadingWidth: 1,
-                      actions: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.menu),
-                          color: Colors.white,
-                        )
-                      ],
                     ),
                     SizedBox(
                       width: media.width,

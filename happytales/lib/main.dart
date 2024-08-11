@@ -16,34 +16,40 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
-  // This widget is the root of your application.
+class _MyAppState extends State<MyApp> {
+  bool _darkMode = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Happy Tales',
       debugShowCheckedModeBanner: false,
-      
-      theme: ThemeData(
-        useMaterial3: true,
-        
-        
-      ),
-      home: WelcomeScreen(),
-
-    
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: _darkMode ? ThemeMode.dark : ThemeMode.light,
+      initialRoute: '/welcome_screen',
       routes: {
-        '/signup': (context) => const Signup(),
-        '/login': (context) => const Login(),
-        '/welcome_screen':(context) =>const WelcomeScreen(),
-        '/home':(context) => const HomeScreen(),
-        '/settings': (context) => SettingsScreen(),
-        '/gemini': (context) => const Gemini(),
+        '/signup': (context) => Signup(),
+        '/login': (context) => Login(),
+        '/welcome_screen': (context) => WelcomeScreen(),
+        '/home': (context) => HomeScreen(),
+        '/settings': (context) => SettingsScreen(
+          darkMode: _darkMode,
+          onDarkModeChanged: (value) {
+            setState(() {
+              _darkMode = value;
+            });
+          },
+        ),
+        '/gemini': (context) => Gemini(),
         '/story': (context) => StoryPage(
           title: '',
           author: '',
@@ -55,6 +61,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
 class AuthCheck extends StatelessWidget {
   @override
