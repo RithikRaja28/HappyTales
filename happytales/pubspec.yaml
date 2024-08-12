@@ -45,6 +45,7 @@ dependencies:
   flutter_settings_screens: ^0.3.4
   google_generative_ai: ^0.4.4
   flutter_markdown: ^0.7.3+1
+  shared_preferences: ^2.3.1
 
   
 

@@ -3,11 +3,15 @@ import 'package:happytales/Screens/Authentication/logout.dart';
 
 class SettingsScreen extends StatefulWidget {
   final bool darkMode;
+  final bool notificationEnabled;
   final ValueChanged<bool> onDarkModeChanged;
+  final ValueChanged<bool> onNotificationChanged;
 
   SettingsScreen({
     required this.darkMode,
+    required this.notificationEnabled,
     required this.onDarkModeChanged,
+    required this.onNotificationChanged,
   });
 
   @override
@@ -19,18 +23,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return SettingsPage(
       darkMode: widget.darkMode,
+      notificationEnabled: widget.notificationEnabled,
       onDarkModeChanged: widget.onDarkModeChanged,
+      onNotificationChanged: widget.onNotificationChanged,
     );
   }
 }
 
 class SettingsPage extends StatelessWidget {
   final bool darkMode;
+  final bool notificationEnabled;
   final ValueChanged<bool> onDarkModeChanged;
+  final ValueChanged<bool> onNotificationChanged;
 
   SettingsPage({
     required this.darkMode,
+    required this.notificationEnabled,
     required this.onDarkModeChanged,
+    required this.onNotificationChanged,
   });
 
   @override
@@ -53,20 +63,18 @@ class SettingsPage extends StatelessWidget {
             onChanged: onDarkModeChanged,
             secondary: Icon(Icons.nights_stay),
           ),
+          SwitchListTile(
+            title: Text('Notifications'),
+            value: notificationEnabled,
+            onChanged: onNotificationChanged,
+            secondary: Icon(Icons.notifications),
+          ),
           ListTile(
             title: Text('Profile & Accounts'),
             leading: Icon(Icons.account_circle_sharp),
             trailing: Icon(Icons.chevron_right),
             onTap: () {
               Navigator.pushNamed(context, '/profile');
-            },
-          ),
-          ListTile(
-            title: Text('Notification'),
-            leading: Icon(Icons.notification_add_sharp),
-            trailing: Icon(Icons.chevron_right),
-            onTap: () {
-              // Navigate to Notifications settings
             },
           ),
           Divider(),

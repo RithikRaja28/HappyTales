@@ -5,6 +5,7 @@ import 'package:happytales/Screens/Authentication/login.dart';
 import 'package:happytales/Screens/Authentication/signup.dart';
 import 'package:happytales/Screens/Gemini%20API/gemini.dart';
 import 'package:happytales/Screens/Home/home_screen.dart';
+import 'package:happytales/Screens/Settings%20Screen/profile.dart';
 import 'package:happytales/Screens/Settings%20Screen/settings_screen.dart';
 import 'package:happytales/Screens/Story%20Screen/story_page.dart';
 import 'package:happytales/Screens/Welcome%20Screen/welcome_screen.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _darkMode = false;
+  bool _notificationEnabled = true; // Default value for notification state
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +45,15 @@ class _MyAppState extends State<MyApp> {
         '/home': (context) => HomeScreen(),
         '/settings': (context) => SettingsScreen(
           darkMode: _darkMode,
+          notificationEnabled: _notificationEnabled,
           onDarkModeChanged: (value) {
             setState(() {
               _darkMode = value;
+            });
+          },
+          onNotificationChanged: (value) {
+            setState(() {
+              _notificationEnabled = value;
             });
           },
         ),
@@ -57,6 +65,7 @@ class _MyAppState extends State<MyApp> {
           content: '',
           moral: '',
         ),
+        '/profile': (context) => ProfilePage()
       },
     );
   }
