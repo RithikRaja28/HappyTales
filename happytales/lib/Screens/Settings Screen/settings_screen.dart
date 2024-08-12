@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happytales/Screens/Authentication/logout.dart';
 
 class SettingsScreen extends StatefulWidget {
   final bool darkMode;
@@ -99,7 +100,7 @@ class SettingsPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: ElevatedButton(
               onPressed: () {
-                // Implement sign out functionality
+                signOut(context);
               },
               child: Text('Sign out'),
               style: ElevatedButton.styleFrom(
